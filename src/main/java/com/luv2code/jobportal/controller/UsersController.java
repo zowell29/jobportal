@@ -30,6 +30,7 @@ public class UsersController {
         this.usersService = usersService;
     }
 
+    //load the page and necessary data for registration
     @GetMapping("/register")
     public String register(Model model){
         List<UsersType> usersTypes = usersTypeService.getAll();
@@ -38,6 +39,7 @@ public class UsersController {
         return "register";
     }
 
+    //receive the registration, validates it, verify duplicates, save and redirect
     @PostMapping("/register/new")
     public String userRegistration(@Valid Users users, Model model){
         Optional<Users> optionalUsers = usersService.getUserByEmail(users.getEmail());
@@ -51,7 +53,7 @@ public class UsersController {
         }
         System.out.println("User: " + users);
         usersService.addNew(users);
-        return "dashboard";
+        return "redirect:/dashboard";
     }
 
     @GetMapping("/login")

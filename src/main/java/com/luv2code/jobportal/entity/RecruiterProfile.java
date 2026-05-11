@@ -121,6 +121,12 @@ public class RecruiterProfile {
         this.state = state;
     }
 
+    @Transient
+    public String getPhotosImagePath(){
+        if(profilePhoto==null) return null;
+        return "/photos/recruitr/" + userAccountId + "/" + profilePhoto;
+    }
+
     @Override
     public String toString() {
         return "RecruiterProfile{" +
@@ -135,5 +141,6 @@ public class RecruiterProfile {
                 ", state='" + state + '\'' +
                 '}';
     }
+
 }
 
