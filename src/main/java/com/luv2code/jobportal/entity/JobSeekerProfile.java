@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name="job_seeker_profile")
 public class JobSeekerProfile {
     @Id
-    private int userAccountId;
+    private Integer userAccountId;
 
     @OneToOne
     @JoinColumn(name="user_account_id")
@@ -37,7 +37,7 @@ public class JobSeekerProfile {
         this.userId = userId;
     }
 
-    public JobSeekerProfile(List<Skills> skills, String workAuthorization, String state, String resume, String profilePhoto, String lastName, String firstName, String employmentType, String country, String city, Users userId, int userAccountId) {
+    public JobSeekerProfile(List<Skills> skills, String workAuthorization, String state, String resume, String profilePhoto, String lastName, String firstName, String employmentType, String country, String city, Users userId, Integer userAccountId) {
         this.skills = skills;
         this.workAuthorization = workAuthorization;
         this.state = state;
@@ -52,11 +52,11 @@ public class JobSeekerProfile {
         this.userAccountId = userAccountId;
     }
 
-    public int getUserAccountId() {
+    public Integer getUserAccountId() {
         return userAccountId;
     }
 
-    public void setUserAccountId(int userAccountId) {
+    public void setUserAccountId(Integer userAccountId) {
         this.userAccountId = userAccountId;
     }
 
@@ -148,6 +148,12 @@ public class JobSeekerProfile {
         this.skills = skills;
     }
 
+    @Transient
+    public String getPhotosImagePath(){
+        if(profilePhoto==null || userAccountId == null) return null;
+        return "/photos/candidate/" + userAccountId + "/" + profilePhoto;
+    }
+
     @Override
     public String toString() {
         return "JobSeekerProfile{" +
@@ -162,7 +168,6 @@ public class JobSeekerProfile {
                 ", resume='" + resume + '\'' +
                 ", state='" + state + '\'' +
                 ", workAuthorization='" + workAuthorization + '\'' +
-                ", skills=" + skills +
                 '}';
     }
 }
