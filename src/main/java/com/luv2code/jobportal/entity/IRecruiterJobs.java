@@ -1,4 +1,4 @@
-package com.luv2code.jobportal.enityt;
+package com.luv2code.jobportal.entity;
 
 public interface IRecruiterJobs {
 

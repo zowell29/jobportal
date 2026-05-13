@@ -1,6 +1,6 @@
 package com.luv2code.jobportal.services;
 
-import com.luv2code.jobportal.enityt.IRecruiterJobs;
+import com.luv2code.jobportal.entity.IRecruiterJobs;
 import com.luv2code.jobportal.entity.JobCompany;
 import com.luv2code.jobportal.entity.JobLocation;
 import com.luv2code.jobportal.entity.JobPostActivity;

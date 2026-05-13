@@ -1,6 +1,6 @@
 package com.luv2code.jobportal.repository;
 
-import com.luv2code.jobportal.enityt.IRecruiterJobs;
+import com.luv2code.jobportal.entity.IRecruiterJobs;
 import com.luv2code.jobportal.entity.JobPostActivity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
